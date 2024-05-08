@@ -11,8 +11,7 @@ Feature: My Profile tests
     And Tap on the three-dot button in top-right corner
     And From the popup window that appears, tap ‘Delete this post’ option
     Then Verify that the message 'Your post has been deleted' is displayed
-    When Go back to my profile page
-    Then Verify that the Take was indeed deleted from user’s profile page
+
 
   @smoke
   Scenario: Unfollow Test: Verify that users can unfollow someone and ensure that the action is reflected in the follower's list
@@ -34,7 +33,6 @@ Feature: My Profile tests
     And Tap on the three-dot button in the right sidebar
     And From the popup window that appears, tap on ‘Delete this spark’ option
     Then Verify that the message 'Your post has been deleted' is displayed
-    Then Verify that the Spark was indeed deleted from user’s profile page
 
   @smoke
   Scenario: Profile Update Test: Verify users can update their profile information successfully

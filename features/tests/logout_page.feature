@@ -4,6 +4,7 @@ Feature: Logout Tests
   @smoke
   Scenario: Logout Test: Ensure users can log out of their accounts without any errors.
     Given Open the app
+    When Login into application
     When Tap on the Avatar in the top-left corner
     And Tap on ‘Settings’ from side menu
     And Tap on ‘Logout’ button

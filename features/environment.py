@@ -15,7 +15,7 @@ def mobile_driver_init(context, scenario_name):
         "deviceName": "emulator-5554",
         "appActivity": "com.hotake.hotake.MainActivity",
         "appPackage": "com.stunt.dev.application",
-        "app": '\C:\Users\elena.kuletsky\Desktop\mobile_automation\mobile_app\app-dev-release.apk'
+        "app": r"C:\Users\elena.kuletsky\Desktop\mobile_automation\mobile_app\app-dev-release.apk"
     }
 
     appium_server_url = 'http://localhost:4723'
