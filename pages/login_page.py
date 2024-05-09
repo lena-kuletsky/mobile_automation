@@ -11,10 +11,6 @@ class LoginPage(Page):
     GET_STARTED_BTN = (AppiumBy.XPATH, '//android.view.View[@content-desc="Get Started"]')
     PHONE_FIELD = (AppiumBy.XPATH, '//android.widget.EditText')
     NEXT_BTN = (AppiumBy.XPATH, '//android.view.View[@content-desc="Next"]')
-    SPARK_BTN = (AppiumBy.XPATH, '(//android.view.View[@content-desc="Sparks"])[2]')
-
-    def give_permission_notify(self):
-        self.click(*self.ALLOW)
 
     def login(self):
         self.click(*self.ALLOW)
@@ -26,5 +22,4 @@ class LoginPage(Page):
         self.input('111111', *self.PHONE_FIELD)
         self.click(*self.NEXT_BTN)
 
-    def verify_login(self):
-        self.find_element(*self.SPARK_BTN)
+

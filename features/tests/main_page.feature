@@ -2,20 +2,16 @@
 Feature: Main page tests
 
   @smoke
-  Scenario: Post Creation Test: Check if users can create Post a Take successfully
-    Given Open the app
-    When Tap on ‘+’ button at the bottom of the screen
-    And Select ‘Post a Take’ from popup menu
-    And Enter text in the text field
-#    And Tap on ‘image’ icon below
-#    And Select one picture from the Gallery
-#    And Tap on ‘Add’ in the top-right corner
-#    And Tap on ‘Post’ in the top-right corner
-    Then Verify that post was published successfully
+  Scenario: Post Creation Test: Check if users can create Post a Take
+    Given Login
+    When Tap on Plus button at the bottom of the screen
+    And Tap on /Post a Take/ from popup menu
+    And Enter text I love sport in the text field
+    And Tap on ‘Post’ to publish
+    Then Verify that post was published
 
   @smoke
   Scenario: Follow Test: Test the ability to follow another user and verify that the action is reflected in the follower's list
-    Given Open the app
     When Tap on ‘search’ icon in the top-right corner
     And Enter text in the search field
     And Tap on ‘People’ tab under search field
@@ -26,8 +22,7 @@ Feature: Main page tests
 
 
   @smoke
-  Scenario: Spark Creation Test: Check if users can create sparks successfully
-    Given Open the app
+  Scenario: Spark Creation Test: Check if users can create sparks
     When Tap on ‘+’ button at the bottom of the screen
     And Select ‘Create a Spark’ from popup menu
     And Tap on the circular button below to start recording
@@ -46,7 +41,6 @@ Feature: Main page tests
 
   @smoke
   Scenario: Search Functionality Test: Verify Users Can Find Users, Posts, or Sparks
-    Given Open the app
     When Tap on ‘search’ icon in the top-right corner
     And Enter text in the search field
     And Tap on ‘All’, ‘People’, ‘Sparks’, ‘Takes’, ‘Replays’ tabs

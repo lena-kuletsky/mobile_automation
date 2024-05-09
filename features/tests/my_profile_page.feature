@@ -1,34 +1,29 @@
 # Created by elena.kuletsky at 5/7/2024
 Feature: My Profile tests
+  Background:
+    Given Login
+    When Tap on the Avatar in the top-left corner
+    When Tap on ‘My Profile’ from the side menu
 
   @smoke
   Scenario: Post Deletion Test: Verify that users can delete their own posts
-    Given Open the app
-    When Tap on the Avatar in the top-left corner
-    And Tap on ‘My Profile’ from the side menu
-    And Tap on ‘Takes’ tab
+    When Tap on ‘Takes’ tab
     And Select post
-    And Tap on the three-dot button in top-right corner
-    And From the popup window that appears, tap ‘Delete this post’ option
+    And Tap on the three-dot button
+    And From the popup window that appears, tap on ‘Delete this post’ option
     Then Verify that the message 'Your post has been deleted' is displayed
 
 
   @smoke
   Scenario: Unfollow Test: Verify that users can unfollow someone and ensure that the action is reflected in the follower's list
-    Given Open the app
-    When Tap on the Avatar in the top-left corner
-    And Tap on ‘My Profile’ from the side menu
-    And Tap on ‘Following’ under profile description
+    When Tap on ‘Following’ under profile description
     And Select an account from the list
     And Tap on ‘Following’ to unfollow
     Then Verify that the app updated the follower's list in the Profile page
 
   @smoke
   Scenario: Spark Deletion Test: Verify that users can delete their own sparks
-    Given Open the app
-    When Tap on the Avatar in the top-left corner
-    And Tap on ‘My Profile’ from the side menu
-    And Tap on ‘Sparks’ tab
+    When Tap on ‘Sparks’ tab
     And Select a Spark
     And Tap on the three-dot button in the right sidebar
     And From the popup window that appears, tap on ‘Delete this spark’ option
@@ -36,10 +31,7 @@ Feature: My Profile tests
 
   @smoke
   Scenario: Profile Update Test: Verify users can update their profile information successfully
-    Given Open the app
-    When Tap on the Avatar in the top-left corner
-    And Tap on ‘My Profile’ from the side menu
-    And Tap on ‘Avatar’ in the top-right corner
+    When Tap on ‘Avatar’ in the profile page
     And Select “Select From Gallery’ option and choose a picture from the Gallery
     And Tap on ‘Edit’
     And Tap on ‘Edit Banner

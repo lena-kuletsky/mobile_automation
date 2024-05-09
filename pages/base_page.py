@@ -1,5 +1,11 @@
+import math
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.actions import interaction
+from selenium.webdriver.common.actions.action_builder import ActionBuilder
+from selenium.webdriver.common.actions.pointer_input import PointerInput
 
 
 class Page:
@@ -61,3 +67,26 @@ class Page:
         actual_text = self.find_element(*locator).text
         assert expected_text == actual_text, \
             f"Expected text {expected_text} did not match actual {actual_text}"
+
+    def click_by_element_coordinates(self, x_percent, y_percent, *locator):
+        """
+        Taps by coordinates, coordinates calculated based on element size and location
+        :param x_percent: x position (in percent) to tap
+        :param y_percent: y position (in percent) to tap
+        :param locator: locator of the element to find
+        """
+        e = self.driver.find_element(*locator)
+        size = e.size
+        location = e.location
+
+        width, height = size['width'], size['height']
+        location_x, location_y = location['x'], location['y']
+        tap_x = math.floor(location_x + width * x_percent / 100)
+        tap_y = math.floor(location_y + height * y_percent / 100)
+
+        actions = ActionChains(self.driver)
+        actions.w3c_actions = ActionBuilder(self.driver,
+                                            mouse=PointerInput(interaction.POINTER_TOUCH, "touch"))
+        actions.w3c_actions.pointer_action.move_to_location(x=tap_x, y=tap_y)
+        actions.w3c_actions.pointer_action.click()
+        actions.w3c_actions.perform()
