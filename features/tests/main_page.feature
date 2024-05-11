@@ -1,9 +1,10 @@
 # Created by elena.kuletsky at 5/4/2024
 Feature: Main page tests
+  Background:
+    Given Login
 
   @smoke
   Scenario: Post Creation Test: Check if users can create Post a Take
-    Given Login
     When Tap on Plus button at the bottom of the screen
     And Tap on /Post a Take/ from popup menu
     And Enter text I love sport in the text field
@@ -11,14 +12,18 @@ Feature: Main page tests
     Then Verify that post was published
 
   @smoke
-  Scenario: Follow Test: Test the ability to follow another user and verify that the action is reflected in the follower's list
-    When Tap on ‘search’ icon in the top-right corner
-    And Enter text in the search field
+  Scenario: Follow Test: Test the ability to follow another user
+    When Tap on ‘search’ icon
+    And Enter text Hammes in the search field
     And Tap on ‘People’ tab under search field
-    And Select any account from the list
-    And On the account's page, tap ‘Follow’ button
-    When Go back to user’s profile ???
-    Then Verify that follower's list reflects the addition
+    And Pick account from the list
+    And Tap on ‘Follow’ button
+    When Tap on Back button
+    When Tap on Cancel button
+    When Tap on the Avatar in the top-left corner
+    When Tap on ‘My Profile’ from the side menu
+    When Tap on Following in the My Profile page
+    Then Verify that following list reflects the addition
 
 
   @smoke
